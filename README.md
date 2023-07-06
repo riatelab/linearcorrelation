@@ -1,18 +1,18 @@
-# corr (linear regression)
+# linearcorrelation
 
 ![npm](https://img.shields.io/npm/v/corr)
 ![jsdeliver](https://img.shields.io/jsdelivr/npm/hw/corr)
 ![license](https://img.shields.io/badge/license-MIT-success)
 ![code size](https://img.shields.io/github/languages/code-size/neocarto/corr)
 
-**corr** is a tiny JavaScript library that performs linear regression and recovers residuals and normalized residuals.
+**linearcorrelation** is a tiny JavaScript library that performs linear regression and recovers residuals and normalized residuals.
 
 ## 1. Installation
 
 #### <ins>In browser</ins>
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/corr" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/linearcorrelation" charset="utf-8"></script>
 ```
 
 #### <ins>In Observable</ins>
@@ -20,7 +20,7 @@
 Last version
 
 ~~~js
-corr = require("corr")
+corr = require("linearcorrelation")
 ~~~
 
 ## 2. Functions
