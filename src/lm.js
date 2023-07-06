@@ -7,38 +7,40 @@ import { prefix } from "./prefix.js";
 import { column } from "./column.js";
 import { isNumber } from "./is-number.js";
 
-export function regression(data, options = {}) {
-  data = data
+export function lm(x, options = {}) {
+  x = x
     .filter((d) => isNumber(d[options.x]))
     .filter((d) => isNumber(d[options.y]));
 
-  const precision = 6;
-  let covavriance = cov(data, { x: options.x, y: options.y });
+  let data = x.map((d) => ({
+    x: options.logx ? Math.log(d[options.x]) : d[options.x],
+    y: options.logy ? Math.log(d[options.y]) : d[options.y],
+  }));
+
+  const precision = 4;
+  let covavriance = cov(data, { x: "x", y: "y" });
 
   // equation
-  let a = covavriance / variance(data.map((d) => d[options.x]));
-  let b =
-    mean(data.map((d) => d[options.y])) -
-    a * mean(data.map((d) => d[options.x]));
+  let a = covavriance / variance(data.map((d) => d.x));
+  let b = mean(data.map((d) => d.y)) - a * mean(data.map((d) => d.x));
 
   let predict = function (x) {
     return a * x + b;
   };
 
   // rsquared
-  let y_mean = mean(data.map((d) => d[options.y]));
+  let y_mean = mean(data.map((d) => d.y));
   let rsquared =
-    sum(data.map((d) => (predict(d[options.x]) - y_mean) ** 2)) /
-    sum(data.map((d) => (d[options.y] - y_mean) ** 2));
+    sum(data.map((d) => (predict(d.x) - y_mean) ** 2)) /
+    sum(data.map((d) => (d.y - y_mean) ** 2));
 
   // residuals
-  const keys = column(data);
-  let data2 = [...data];
-  let res = data.map((d) => d[options.y] - predict(d[options.x]));
+  const keys = column(x);
+  let res = data.map((d) => d.y - predict(d.x));
   let sd = deviation(res);
   let resnorm = res.map((d) => d / sd);
 
-  data2 = data.map((d, i) => ({
+  let data2 = x.map((d, i) => ({
     ...d,
     [prefix("index", keys)]: i,
     [prefix("residuals", keys)]: res[i],

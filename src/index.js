@@ -5,5 +5,5 @@
 // export { variance } from "./variance.js";
 // export { deviation } from "./deviation.js";
 // export { cov } from "./cov.js";
-export { regression } from "./regression.js";
+export { lm } from "./lm.js";
 export { test } from "./test.js";

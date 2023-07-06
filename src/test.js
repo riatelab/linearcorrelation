@@ -4,26 +4,35 @@ import { rank } from "./rank.js";
 import { sum } from "./sum.js";
 import { isNumber } from "./is-number.js";
 
-export function test(data, options = {}) {
-  data = data
+export function test(x, options = {}) {
+  // precison
+  const precision = 4;
+
+  // rempve missing values
+  let data = x
     .filter((d) => isNumber(d[options.x]))
     .filter((d) => isNumber(d[options.y]));
 
-  const precision = 6;
+  // missing TDOD
+  let missing = x.length - data.length;
+
+  // Log transformation
+
+  data = x.map((d) => ({
+    x: options.logx ? Math.log(d[options.x]) : d[options.x],
+    y: options.logy ? Math.log(d[options.y]) : d[options.y],
+  }));
 
   // pearson
   let pearson =
-    cov(data, options) /
-    (deviation(data.map((d) => d[options.x])) *
-      deviation(data.map((d) => d[options.y])));
+    cov(data, { x: "x", y: "y" }) /
+    (deviation(data.map((d) => d.x)) * deviation(data.map((d) => d.y)));
 
   // spearman
-  let dd = data
-    .filter((d) => isNumber(d[options.x]))
-    .filter((d) => isNumber(d[options.y]));
+  let dd = data.filter((d) => isNumber(d.x)).filter((d) => isNumber(d.y));
 
-  let rank_x = rank(dd.map((d) => d[options.x]));
-  let rank_y = rank(dd.map((d) => d[options.y]));
+  let rank_x = rank(dd.map((d) => d.x));
+  let rank_y = rank(dd.map((d) => d.y));
 
   let spearman =
     1 -
@@ -33,5 +42,6 @@ export function test(data, options = {}) {
   return {
     pearson: +pearson.toFixed(precision),
     spearman: +spearman.toFixed(precision),
+    missing,
   };
 }
