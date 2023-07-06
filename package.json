@@ -1,5 +1,5 @@
 {
-  "name": "geostatcorristics",
+  "name": "corr",
   "version": "0.1.0",
   "description": "JavaScript library that performs linear regression and recovers residuals and normalized residuals",
   "main": "src/index.js",
