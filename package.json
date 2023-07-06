@@ -1,6 +1,6 @@
 {
   "name": "geostatcorristics",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "JavaScript library that performs linear regression and recovers residuals and normalized residuals",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -30,7 +30,7 @@
     "url": "https://github.com/neocarto/corr/issues"
   },
   "homepage": "https://github.com/neocarto/corr#readme",
-   "devDependencies": {
+  "devDependencies": {
     "@babel/preset-env": "^7.16.11",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^21.0.1",
