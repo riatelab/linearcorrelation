@@ -1,7 +1,7 @@
 {
-  "name": "geostatistics",
+  "name": "geostatcorristics",
   "version": "0.0.1",
-  "description": "Statistical operators for geography",
+  "description": "JavaScript library that performs linear regression and recovers residuals and normalized residuals",
   "main": "src/index.js",
   "module": "src/index.js",
   "jsdelivr": "dist/index.min.js",
@@ -16,20 +16,20 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/neocarto/geostatistics.git"
+    "url": "git+https://github.com/neocarto/corr.git"
   },
   "keywords": [
     "statistics",
-    "breaks",
-    "discretization",
-    "classification"
+    "correlation",
+    "linear regression",
+    "residuals"
   ],
   "author": "Nicolas Lambert",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/neocarto/geostatistics/issues"
+    "url": "https://github.com/neocarto/corr/issues"
   },
-  "homepage": "https://github.com/neocarto/geostatistics#readme",
+  "homepage": "https://github.com/neocarto/corr#readme",
    "devDependencies": {
     "@babel/preset-env": "^7.16.11",
     "@rollup/plugin-babel": "^5.3.0",
