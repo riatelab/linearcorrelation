@@ -50,4 +50,4 @@ lm(data, {x: "gdp", y:"co2", logx: true, logy: false })
 
 ## 3. Demo
 
-A live demo is available on this Observable notebook: https://observablehq.com/@neocartocnrs/corr
+A live demo is available on this Observable notebook: https://observablehq.com/@neocartocnrs/linearcorrelation
