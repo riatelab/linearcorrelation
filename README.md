@@ -3,7 +3,7 @@
 ![npm](https://img.shields.io/npm/v/linearcorrelation)
 ![jsdeliver](https://img.shields.io/jsdelivr/npm/hw/linearcorrelation)
 ![license](https://img.shields.io/badge/license-MIT-success)
-![code size](https://img.shields.io/github/languages/code-size/neocarto/linearcorrelation)
+![code size](https://img.shields.io/github/languages/code-size/riatelab/linearcorrelation)
 
 **linearcorrelation** is a tiny JavaScript library that performs linear regression and recovers residuals and normalized residuals.
 
